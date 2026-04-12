@@ -21,6 +21,12 @@
         <button class="mode-pill" type="button" data-mode="country-to-capital" aria-pressed="false">
           Country to Capital
         </button>
+        <button class="mode-pill" type="button" data-mode="capital-to-country" aria-pressed="false">
+          Capital to Country
+        </button>
+        <button class="mode-pill" type="button" data-mode="country-to-flag" aria-pressed="false">
+          Country to Flag
+        </button>
       </div>
       <div class="mode-strip" aria-label="Continents">
         <button class="filter-pill filter-pill-active" type="button" data-region="world" aria-pressed="true">
@@ -74,7 +80,29 @@
         <p id="start-message" class="results-message">
           Pick a mode above, then start a fresh 10-question round.
         </p>
-        <button id="start-button" class="restart-button" type="button">Start game</button>
+        <div class="stats-grid">
+          <article class="stat-card">
+            <p class="stat-label">Best Score</p>
+            <p id="best-score-stat" class="stat-value">0 / 10</p>
+          </article>
+          <article class="stat-card">
+            <p class="stat-label">Rounds Played</p>
+            <p id="rounds-played-stat" class="stat-value">0</p>
+          </article>
+          <article class="stat-card">
+            <p class="stat-label">Current Streak</p>
+            <p id="current-streak-stat" class="stat-value">0</p>
+          </article>
+          <article class="stat-card">
+            <p class="stat-label">Best Streak</p>
+            <p id="best-streak-stat" class="stat-value">0</p>
+          </article>
+        </div>
+        <p id="mistakes-summary" class="results-message"></p>
+        <div class="results-actions">
+          <button id="start-button" class="restart-button" type="button">Start game</button>
+          <button id="practice-button" class="secondary-button" type="button">Practice mistakes</button>
+        </div>
       </div>
 
       <div id="quiz-state" class="hidden">
@@ -103,7 +131,11 @@
         <p id="results-label" class="results-label">Round complete</p>
         <h2>Your score: <span id="final-score">0</span> / 10</h2>
         <p id="results-message" class="results-message"></p>
-        <button id="restart-button" class="restart-button" type="button">Play again</button>
+        <p id="results-progress-summary" class="results-message"></p>
+        <div class="results-actions">
+          <button id="restart-button" class="restart-button" type="button">Play again</button>
+          <button id="practice-results-button" class="secondary-button" type="button">Practice mistakes</button>
+        </div>
       </div>
     </section>
   </main>
