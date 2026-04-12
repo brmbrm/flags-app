@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flag & Capital Quiz</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section class="hero">
+      <p class="eyebrow">Flags & Capitals</p>
+      <h1>Flag &amp; Capital Quiz</h1>
+      <p id="mode-description" class="intro">
+        Start with the first game mode: look at the flag and pick the right country.
+      </p>
+      <div class="mode-strip" aria-label="Game modes">
+        <button class="mode-pill mode-pill-active" type="button" data-mode="flag-to-country" aria-pressed="true">
+          Flag to Country
+        </button>
+        <button class="mode-pill" type="button" data-mode="country-to-capital" aria-pressed="false">
+          Country to Capital
+        </button>
+      </div>
+      <div class="mode-strip" aria-label="Continents">
+        <button class="filter-pill filter-pill-active" type="button" data-region="world" aria-pressed="true">
+          World
+        </button>
+        <button class="filter-pill" type="button" data-region="Africa" aria-pressed="false">
+          Africa
+        </button>
+        <button class="filter-pill" type="button" data-region="Americas" aria-pressed="false">
+          Americas
+        </button>
+        <button class="filter-pill" type="button" data-region="Asia" aria-pressed="false">
+          Asia
+        </button>
+        <button class="filter-pill" type="button" data-region="Europe" aria-pressed="false">
+          Europe
+        </button>
+        <button class="filter-pill" type="button" data-region="Oceania" aria-pressed="false">
+          Oceania
+        </button>
+      </div>
+    </section>
+
+    <section class="game-card" aria-live="polite">
+      <div id="status-area" class="hidden">
+        <div class="status-bar">
+          <div>
+            <p class="status-label">Question</p>
+            <p class="status-value"><span id="question-number">1</span> / 10</p>
+          </div>
+          <div>
+            <p class="status-label">Score</p>
+            <p class="status-value"><span id="score">0</span></p>
+          </div>
+        </div>
+
+        <div class="progress-track" aria-hidden="true">
+          <div id="progress-bar" class="progress-bar"></div>
+        </div>
+      </div>
+
+      <div id="loading-state" class="message-panel">
+        Loading countries and flags...
+      </div>
+
+      <div id="error-state" class="message-panel message-panel-error hidden" role="alert"></div>
+
+      <div id="start-state" class="results hidden">
+        <p class="results-label">Choose a mode</p>
+        <h2 id="start-title">Flag to Country</h2>
+        <p id="start-message" class="results-message">
+          Pick a mode above, then start a fresh 10-question round.
+        </p>
+        <button id="start-button" class="restart-button" type="button">Start game</button>
+      </div>
+
+      <div id="quiz-state" class="hidden">
+        <div class="flag-panel">
+          <p id="prompt" class="prompt">Which country does this flag belong to?</p>
+          <div class="flag-frame">
+            <img id="flag-image" src="" alt="" class="flag-image">
+            <p id="country-name" class="country-name hidden"></p>
+          </div>
+        </div>
+
+        <div id="answer-buttons" class="answers" role="list"></div>
+
+        <div class="footer-bar">
+          <div class="feedback-stack">
+            <p id="feedback" class="feedback">Choose an answer to continue.</p>
+            <div id="auto-advance-track" class="auto-advance-track hidden" aria-hidden="true">
+              <div id="auto-advance-bar" class="auto-advance-bar"></div>
+            </div>
+          </div>
+          <button id="restart-current-button" class="secondary-button" type="button">Restart round</button>
+        </div>
+      </div>
+
+      <div id="results-state" class="results hidden">
+        <p id="results-label" class="results-label">Round complete</p>
+        <h2>Your score: <span id="final-score">0</span> / 10</h2>
+        <p id="results-message" class="results-message"></p>
+        <button id="restart-button" class="restart-button" type="button">Play again</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
